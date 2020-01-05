@@ -4,7 +4,7 @@ This repository contains a simple Python script that implements a depth/breadth-
 The crawler uses some packages: 
 * sys - for command line arguments
 * request - to make http(s) GET requests to urls and fetch the html source.
-* re - regex library used for regex matching of <a href="..."> tags to parse URLs in a capturing group.
+* re - regex library used for regex matching of `<a href="...">` tags to parse URLs in a capturing group.
 * urlparse - breaks down a URL into an object with the scheme (https), netloc (www.reddit.com) and page (/r/gaming).
 
 ## Requirements
