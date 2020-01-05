@@ -3,10 +3,6 @@ import requests
 import re
 from urllib.parse import urlparse
 
-# TODO: Change to breadth-first
-# TODO: 100 unique URLs in a list, stop and print
-# TODO: nice readme and exceptions for CLA
-
 class Crawler:
     def __init__(self, url):
         self.starting_url = url
@@ -44,14 +40,18 @@ class Crawler:
 
         for link in self.get_links(url):
             if link not in self.visited:
+                if len(self.visited) == 100:
+                    break
                 print(link)
                 # add the link to the list of visited urls
                 self.visited.add(link)
                 # currently depth-first
                 self.crawl(link)
 
+
     def start(self):
         self.crawl(self.starting_url)
+        print("\nProgram finished with 100 unique URLs.")
 
 
 if __name__ == "__main__":
