@@ -18,7 +18,8 @@ $ python3 crawler.py http://crawl-a-website.com
 ```
 
 ## Known issues / Potential Optimisations
+1. Does not check if a URL is valid or up. An exception gets thrown when an invalid link is accessed, but it still gets added and counts towards the list of 100 urls. This could be fixed with a little bit of refactoring, but I was intending to fix this by (or after) implementing a breadth-first search.
 
-1. Currently does not differentiate two urls as unique with trailing '/'s, '#'s, or http vs https. i.e. https://reddit.com/ and https://reddit.com. An attempt has been made to remove the trailing '/'s with the rstrip() function, but is not working yet. Another possible fix would be to optimise the regex to omit trailing '/'s when a given string ends with one.
+2. Currently does not differentiate two urls as unique with trailing '/'s, '#'s, or http vs https. i.e. https://reddit.com/ and https://reddit.com. An attempt has been made to remove the trailing '/'s with the rstrip() function, but is not working yet. Another possible fix would be to optimise the regex to omit trailing '/'s when a given string ends with one.
 
-2. Some sites actively try to blacklist web crawlers by not accepting too many http requests from a single host within a short timeframe. This can be circumvented by using a rotating proxy API. Or, if one desires implementation from scratch, the requests package supports the use of proxies by accepting an argument that expects a dictionary of proxy IP addresses. More information can be found on the request docs [here](https://2.python-requests.org//en/latest/user/advanced/#proxies)
+3. Some sites actively try to blacklist web crawlers by not accepting too many http requests from a single host within a short timeframe. This can be circumvented by using a rotating proxy API. Or, if one desires implementation from scratch, the requests package supports the use of proxies by accepting an argument that expects a dictionary of proxy IP addresses. More information can be found on the request docs [here](https://2.python-requests.org//en/latest/user/advanced/#proxies)
